@@ -3,12 +3,11 @@
 enum layer_number {
   _COLEMAK = 0,
   _QWERTY,
-  _L2,
-  _L3,
-  _L4,
-  _L_MOUSE,
-  _L_SYS,
-  
+  _NAV,
+  _SYM,
+  _SPECIAL,
+  _MOUSE,
+  _SYS,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -23,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  ` ~  |    |  \ |  |------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   D  |   V  |-------|    |-------|   K  |   H  |   ,  |   .  |   /  |Enter |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | LGUI |LOWER | /Space  /       \RShift\  |RAISE | AltGr| Ins  |
+ *                   | LAlt | LGUI | NAV  | /Space  /       \RShift\  | SYM  | AltGr| Ins  |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -33,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,                     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_MINS,
   KC_LCTL,  KC_A,   KC_R,    KC_S,    KC_T,    KC_G,                     KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_D,    KC_V, KC_GRV,   KC_BSLS,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-                        KC_LALT, KC_LGUI, TT(_L3), KC_SPC, KC_RSFT, TT(_L2), KC_ALGR, KC_INS
+                        KC_LALT, KC_LGUI, TT(_NAV), KC_SPC, KC_RSFT, TT(_SYM), KC_ALGR, KC_INS
 ),
 
 /* QWERTY
@@ -46,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  ` ~  |    |  \ |  |------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |Enter |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | LGUI |LOWER | /Space  /       \RShift\  |RAISE | AltGr| Ins  |
+ *                   | LAlt | LGUI | NAV  | /Space  /       \RShift\  | SYM  | AltGr| Ins  |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -56,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_GRV,   KC_BSLS,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_ENT,
-                        KC_LALT, KC_LGUI, TT(_L3), KC_SPC, KC_RSFT, TT(_L2), KC_ALGR, KC_INS
+                        KC_LALT, KC_LGUI, TT(_NAV), KC_SPC, KC_RSFT, TT(_SYM), KC_ALGR, KC_INS
 ),
 
 /* L2
@@ -69,17 +68,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |  1   |  2   |  3   |  0   |-------|    |-------|      |      |      |      |  \   |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |      |      |      | /Bksp   /       \      \  | {L2} |      | MENU |
- *                   |      |      |      |/Shift  /         \      \ |      |      |Compos|
+ *                   | SYS  |      |      | /       /       \      \  |      |      | MENU |
+ *                   |      |      |      |/       /         \      \ |      |      |Compos|
  *                   `----------------------------'           '------''--------------------'
  */
 
-[_L2] = LAYOUT(
+[_NAV] = LAYOUT(
    KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_DEL,
   _______, _______,    KC_7,    KC_8,    KC_9, _______,                     KC_PGUP, KC_HOME,   KC_UP,  KC_END,  KC_F11, _______,
   _______, _______,    KC_4,    KC_5,    KC_6,  KC_DOT,                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,  KC_F12, _______,
   _______, _______,    KC_1,    KC_2,    KC_3,    KC_0,  _______, _______, _______, _______, _______, _______, KC_BSLS, _______,
-                             _______, _______, _______, LSFT_T(KC_BSPC), _______, _______, _______, KC_APP
+                            MO(_SYS), _______, _______, _______, _______, _______, _______, KC_APP
 ),
 
 
@@ -93,16 +92,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |  |   |  1   |  2   |  3   |  0   |-------|    |-------|  @   |  =   |  <   |  >   |  \   |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | SYS  |      | {L3} | /       /       \Bksp  \  |      |      |      |
- *                   |      |      |      |/       /         \ Shift\ |      |      |      |
+ *                   | SYS  |      |      | /       /       \      \  |      |      |      |
+ *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
-[_L3] = LAYOUT(
+[_SYM] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, KC_DEL,
   _______, KC_DLR,     KC_7,    KC_8,    KC_9, KC_CIRC,                   KC_HASH, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC, _______,
   _______, KC_AMPR,    KC_4,    KC_5,    KC_6, KC_ASTR,                   KC_EXLM, KC_MINS, KC_LPRN, KC_RPRN, KC_UNDS, KC_GRV,
   _______, KC_PIPE,    KC_1,    KC_2,    KC_3,    KC_0, _______, _______, KC_AT,   KC_EQL,  KC_LT,   KC_GT,   KC_BSLS, _______,
-                             MO(_L_SYS), _______, _______, _______,  RSFT_T(KC_BSPC), _______, _______, _______
+                             MO(_SYS), _______, _______, _______, _______, _______, _______, _______
 ),
 
 /* L4
@@ -115,15 +114,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------| Mute |MOUSE |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |      |      | {L3} | /       /       \      \  | {L2} |      |      |
+ *                   |      |      |      | /       /       \      \  |      |      |      |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
-[_L4] = LAYOUT(
+[_SPECIAL] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                   KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
   _______, _______, _______, _______, _______, _______,                   KC_VOLD, KC_WBAK, _______, KC_WFWD, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, KC_MUTE, TG(_L_MOUSE), _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, KC_MUTE, TG(_MOUSE), _______, _______, _______, _______,
                              _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
@@ -141,11 +140,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
-[_L_MOUSE] = LAYOUT(
+[_MOUSE] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX,                            KC_WH_U, KC_WH_L, KC_WH_R, XXXXXXX, XXXXXXX, XXXXXXX,
   _______, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                            KC_WH_D, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX, XXXXXXX,
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, TG(_L_MOUSE), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, TG(_MOUSE), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                  _______, _______, _______, _______, _______, _______, _______, XXXXXXX
 ),
 
@@ -163,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
-[_L_SYS] = LAYOUT(
+[_SYS] = LAYOUT(
 QK_REBOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, KC_SCRL, XXXXXXX, XXXXXXX,                            XXXXXXX,  KC_NUM, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -176,7 +175,7 @@ QK_REBOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _L3, _L2, _L4);
+  return update_tri_layer_state(state, _SYM, _NAV, _SPECIAL);
 }
 
 //SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
@@ -205,15 +204,15 @@ bool oled_task_user(void) {
     }
     oled_write_ln("", false);
 
-    if (layer_state & (1 << _L_SYS)) {
+    if (layer_state & (1 << _SYS)) {
       oled_write_ln(" SYS ", false);
-    } else if (layer_state & (1 << _L_MOUSE)) {
+    } else if (layer_state & (1 << _MOUSE)) {
       oled_write_ln("MOUSE", false);
-    } else if (layer_state & (1 << _L4)) {
+    } else if (layer_state & (1 << _SPECIAL)) {
       oled_write_ln(" L 4 ", false);
-    } else if (layer_state & (1 << _L3)) {
+    } else if (layer_state & (1 << _SYM)) {
       oled_write_ln(" L 3 ", false);
-    } else if (layer_state & (1 << _L2)) {
+    } else if (layer_state & (1 << _NAV)) {
       oled_write_ln(" L 2 ", false);
     } else {
       oled_write_ln("     ", false);
