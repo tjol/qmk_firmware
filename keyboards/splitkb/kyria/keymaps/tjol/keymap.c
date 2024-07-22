@@ -41,21 +41,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: Colemak DH
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  Tab   |   Q  |   W  |   F  |   P  |   B  |                              |   J  |   L  |   U  |   Y  | ;  : |  Bksp  |
+ * |  Esc   |   Q  |   W  |   F  |   P  |   B  |                              |   J  |   L  |   U  |   Y  | ;  : |  Bksp  |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |  Ctrl  |   A  |   R  |   S  |   T  |   G  |                              |   M  |   N  |   E  |   I  |   O  | ' "    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   D  |   V  | ` ~  | Esc  |  |F-keys|  \ | |   K  |   H  | ,  < | . >  | /  ? | Enter  |
+ * | LShift |   Z  |   X  |   C  |   D  |   V  | ` ~  |Adjust|  |F-keys|  \ | |   K  |   H  | ,  < | . >  | /  ? | Enter  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |Adjust| LAlt | LGUI | Space| Nav  |  | Sym  | Shift| AltGr| RGUI | Ins  |
+ *                        | TAB  | LAlt | Nav  | Space| LGUI |  |AltGr | Shift| Sym  | RGUI | Ins  |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_COLEMAK_DH] = LAYOUT(
-     KC_TAB  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, KC_BSPC,
+     KC_ESC  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, KC_BSPC,
      KC_LCTL , KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                        KC_M,   KC_N ,  KC_E ,   KC_I ,  KC_O , KC_QUOT,
-     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_GRV , KC_ESC ,    FKEYS  , KC_BSLS, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_ENT,
-                                 SYSLY , KC_LALT, KC_LGUI, KC_SPC , NAV    ,    SYM    , KC_RSFT ,KC_RALT, KC_RGUI, KC_INS
+     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_GRV , SYSLY,     FKEYS  , KC_BSLS, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_ENT,
+                                 KC_TAB, KC_LALT,   NAV  , KC_SPC , KC_LGUI,   KC_RALT , KC_RSFT , SYM, KC_RGUI, KC_INS
     ),
 
 
@@ -63,21 +63,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
+ * |  Esc   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |  Ctrl  |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  | ` ~  | Esc  |  |F-keys| \ |  |   N  |   M  | ,  < | . >  | /  ? | Enter  |
+ * | LShift |   Z  |   X  |   C  |   V  |   B  | ` ~  |Adjust|  |F-keys| \ |  |   N  |   M  | ,  < | . >  | /  ? | Enter  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |Adjust| LAlt | LGUI | Space| Nav  |  | Sym  | Shift| AltGr| RGUI | Ins  |
+ *                        | TAB  | LAlt | Nav  | Space| LGUI |  |AltGr | Shift| Sym  | RGUI | Ins  |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-     KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , KC_BSPC,
+     KC_ESC  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , KC_BSPC,
      KC_LCTL , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H,   KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
-     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_GRV , KC_CAPS,    FKEYS  , KC_BSLS, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_ENT,
-                                SYSLY  , KC_LALT, KC_LGUI, KC_SPC , NAV    ,    SYM    , KC_RSFT, KC_RALT, KC_RGUI, KC_INS
+     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_GRV , SYSLY,     FKEYS  , KC_BSLS, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_ENT,
+                                 KC_TAB, KC_LALT,   NAV  , KC_SPC , KC_LGUI,   KC_RALT , KC_RSFT,  SYM, KC_RGUI, KC_INS
     ),
 
 /*
@@ -146,20 +146,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Sys layer: default layer, media keys
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * | REBOOT |      |      |      |      |      |                              | Vol+ | Prev | Play | Next |      |        |
+ * | REBOOT |      |      |      |QWERTY|COLEMK|                              | Vol+ | Prev | Play | Next |      |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * | FLASH  |      |      |      |      |      |                              | Vol- | Back |      | Fwd  |      |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | CAPS   |      |      |      |      |      |QWERTY|COLEMK|  |      |      | Mute |      |      |      |      |        |
+ * | CAPS   |      |      |      |      |      |      |      |  |      |      | Mute |      |      |      |      |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SYS] = LAYOUT(
-    QK_REBOOT, _______, _______, _______, _______, _______,                                     KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
+    QK_REBOOT, _______, _______, _______, QWERTY , COLEMAK,                                     KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
       QK_BOOT, _______, _______, _______, _______, _______,                                     KC_VOLD, KC_WBAK, _______, KC_WFWD, _______, _______,
-      KC_CAPS, _______, _______, _______, _______, _______, QWERTY , COLEMAK, _______, _______, KC_MUTE, _______, _______, _______, _______, _______,
+      KC_CAPS, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MUTE, _______, _______, _______, _______, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
